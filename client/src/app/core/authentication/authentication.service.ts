@@ -4,7 +4,7 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { map, catchError } from 'rxjs/operators';
 import { IUser } from '@app/shared/model/user.model';
-import swal from 'sweetalert2';
+import * as _swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
 export interface Credentials {
@@ -28,6 +28,8 @@ export interface SignUpContext {
   password: string;
   remember?: boolean;
 }
+
+const swal: any = _swal;
 
 const credentialsKey = 'credentials';
 
@@ -93,9 +95,9 @@ export class AuthenticationService {
               username
             }
           }
-        `
+        `,
       })
-      .valueChanges.pipe(map(res => res.data.me));
+      .valueChanges.pipe(map((res) => res.data.me));
   }
 
   /**
@@ -107,7 +109,7 @@ export class AuthenticationService {
     const user = {
       username: context.username,
       token: '',
-      remember: context.remember
+      remember: context.remember,
     };
 
     return this.apollo
@@ -115,8 +117,8 @@ export class AuthenticationService {
         mutation: signIn,
         variables: {
           login: context.username,
-          password: context.password
-        }
+          password: context.password,
+        },
       })
       .pipe(
         map(({ data }: any) => {
@@ -125,7 +127,7 @@ export class AuthenticationService {
           this.apollo.getClient().resetStore();
           return user;
         }),
-        catchError(err => {
+        catchError((err) => {
           if (err.graphQLErrors) {
             let error = null;
 
@@ -134,7 +136,7 @@ export class AuthenticationService {
                 message: e.extensions.exception.errors[0].message,
                 path: e.extensions.exception.errors[0].path,
                 type: e.extensions.exception.errors[0].type,
-                value: e.extensions.exception.errors[0].value
+                value: e.extensions.exception.errors[0].value,
               };
             });
 
@@ -156,7 +158,7 @@ export class AuthenticationService {
     const user = {
       username: context.username,
       token: '',
-      remember: context.remember
+      remember: context.remember,
     };
 
     return this.apollo
@@ -167,8 +169,8 @@ export class AuthenticationService {
           lastName: context.lastName,
           email: context.email,
           username: context.username,
-          password: context.password
-        }
+          password: context.password,
+        },
       })
       .pipe(
         map(({ data }: any) => {
@@ -176,7 +178,7 @@ export class AuthenticationService {
           this.setCredentials(user, context.remember);
           return user;
         }),
-        catchError(err => {
+        catchError((err) => {
           if (err.graphQLErrors) {
             let error = null;
 
@@ -185,7 +187,7 @@ export class AuthenticationService {
                 message: e.extensions.exception.errors[0].message,
                 path: e.extensions.exception.errors[0].path,
                 type: e.extensions.exception.errors[0].type,
-                value: e.extensions.exception.errors[0].value
+                value: e.extensions.exception.errors[0].value,
               };
             });
 
@@ -240,7 +242,7 @@ export class AuthenticationService {
         allowOutsideClick: false,
         onOpen: () => {
           swal.showLoading();
-        }
+        },
       })
       .then(() => {
         this.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
