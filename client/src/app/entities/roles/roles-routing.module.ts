@@ -7,8 +7,7 @@ import { RolesUpdateComponent } from '@app/entities/roles/roles-update/roles-upd
 import { RolesService } from '@app/core/services/roles.service';
 import { IRole, Role } from '@app/shared/model/role.model';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { first } from 'rxjs/internal/operators';
+import { first, map } from 'rxjs/operators';
 import { RolesCreatePopupComponent } from '@app/entities/roles/roles-create-dialog/roles-create-dialog.component';
 import { RolesDeletePopupComponent } from '@app/entities/roles/roles-delete-dialog/roles-delete-dialog.component';
 
