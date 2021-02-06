@@ -8,8 +8,7 @@ import { UserManagementUpdateComponent } from '@app/admin/user-management/user-m
 import { IUser, User } from '@app/shared/model/user.model';
 import { UserService } from '@app/core/services/user.service';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { first } from 'rxjs/internal/operators';
+import { first, map } from 'rxjs/operators';
 import { UserManagementDeletePopupComponent } from '@app/admin/user-management/user-management-delete-dialog/user-management-delete-dialog.component';
 import { UserManagementCreatePopupComponent } from '@app/admin/user-management/user-management-create-dialog/user-management-create-dialog.component';
 
