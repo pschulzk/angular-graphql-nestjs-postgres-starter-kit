@@ -168,7 +168,7 @@ export class MessagesService {
       .subscribe({
         query: messageSubscription
       })
-      .pipe(map(res => res.data.messageCreated.message));
+      .pipe(map(res => (res.data as any).messageCreated.message));
   }
 
   createMessage(text: string): Observable<IMessages> {
