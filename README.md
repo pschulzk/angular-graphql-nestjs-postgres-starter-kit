@@ -1,6 +1,6 @@
-# 🚀Angular 8 + GraphQL + NestJS + Postgres Starter Kit
+# 🚀Angular 11 + GraphQL + NestJS + Postgres Starter Kit
 
-A full-stack starter kit with Angular 8, GraphQL, Apollo, NestJS and Postgres.
+A full-stack starter kit with Angular 11, GraphQL, Apollo, NestJS and Postgres.
 
 Starting a new web app can be hard. Choosing the right technologies, architecting the foundation and developing the core of an application can take a lot of time. Setting up a back-end and front-end requires a substantial amount of work. Furthermore, if you don't do things correctly, it can create technical debt, painless refactoring, and maintenance hell. We take care of all the tedious, mundane setup process for you.
 
@@ -12,7 +12,7 @@ Happy Coding :)
 
 ## Features
 
-- [Angular 8.X](https://angular.io/) (w/ [TypScript](https://www.typescriptlang.org/))
+- [Angular 11.X](https://angular.io/) (w/ [TypScript](https://www.typescriptlang.org/))
 - [GraphQL](https://graphql.org/)
 - [NestJS](https://nestjs.com/) server
 - [TypeORM](https://typeorm.io/#/)
